@@ -7,10 +7,15 @@ function drawPoint(ctx, point) {
     ctx.arc(point.x, point.y, pointRadius, 0, 2*Math.PI);
     ctx.fill();
 }
+function drawPoints(ctx, points) {
+    points.forEach(point => drawPoint(ctx, point));
+}
 
 let points = [];
 for (let i = 0; i < 20; ++i) {
     let x = Math.random() * 300 >> 0;
     let y = Math.random() * 300 >> 0;
-    drawPoint(ctx, {x: x, y: y});
+    points[i] = {x: x, y: y};
 }
+
+drawPoints(ctx, points);
